@@ -16,9 +16,9 @@ public class CarsTest {
     @Test
     @DisplayName("자동차들이 정상적으로 추가되는지 확인")
     public void carAddTest(){
-        Car gamzaCar = new Car(new CarName("gamza"));
-        Car riceCar = new Car(new CarName("rice"));
-        Car appleCar = new Car(new CarName("apple"));
+        Car gamzaCar = new Car("gamza");
+        Car riceCar = new Car("rice");
+        Car appleCar = new Car("apple");
 
         Cars cars = new Cars(Arrays.asList(gamzaCar, riceCar, appleCar));
 
@@ -31,7 +31,6 @@ public class CarsTest {
     public void carsNameInputTest(){
         List<String> carsNameString = Arrays.asList("gamza","rice", "apple");
         List<Car> carNamesCar = carsNameString.stream()
-                .map(CarName::new)
                 .map(Car::new)
                 .collect(Collectors.toList());
 

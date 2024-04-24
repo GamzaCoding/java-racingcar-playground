@@ -1,5 +1,7 @@
 package view;
 
+import com.sun.source.doctree.ThrowsTree;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -21,11 +23,11 @@ public class InputView {
         return Integer.parseInt(playCount);
     }
 
-    private static void nonNumberInputExceptionCheck(String playCount) {
+    private static void nonNumberInputExceptionCheck(String playCount) {    // try-catch 구문에 throw new가 맞나??
         try {
             Integer.parseInt(playCount);
         } catch (Exception e){
-            OutputView.replayCountExceptionMessage();
+            throw new IllegalArgumentException(ExceptionView.getReplayCountExceptionMessage());
         }
     }
 

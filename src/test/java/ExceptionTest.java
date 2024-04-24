@@ -13,17 +13,17 @@ public class ExceptionTest {
     @Test
     @DisplayName("자동차 이름 5글자 초과 예외 확인")
     public void overFiveName(){
-        assertThatThrownBy(() -> new Car(new CarName("sixsix")))
+        assertThatThrownBy(() -> new Car("aaabbb"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("자동차 이름 중복 예외 확인")
     public void duplicationCarName(){
-        Car gamzaCar = new Car(new CarName("gamza"));
-        Car riceCar = new Car(new CarName("rice"));
-        Car appleCar = new Car(new CarName("apple"));
-        Car appleCarDu = new Car(new CarName("apple"));
+        Car gamzaCar = new Car("gamza");
+        Car riceCar = new Car("rice");
+        Car appleCar = new Car("apple");
+        Car appleCarDu = new Car("apple");
 
         assertThatThrownBy(() -> new Cars(Arrays.asList(gamzaCar, riceCar, appleCar, appleCarDu)))
                 .isInstanceOf(IllegalArgumentException.class);

@@ -16,7 +16,7 @@ public class RacingGame {
     public void play(){
         OutputView.racingStartMessage();
 
-        racingCars = new Cars(mapToCarNameList(InputView.inputCarName()));
+        racingCars = new Cars(carsSetting());
 
         OutputView.attemptNumberMessage();
 
@@ -28,12 +28,12 @@ public class RacingGame {
     }
 
     private String findWinner() {
-        Car winnercar = racingCars.getCars().stream()
-                .max(Comparator.comparing(Car::getCarLocation))
+        Car highestPositioncar = racingCars.getCars().stream()
+                .max(Comparator.comparing(Car::getCarPosition))
                 .get();
 
         List<Car> winners = racingCars.getCars().stream()
-                .filter(car -> car.getCarLocation() == winnercar.getCarLocation())
+                .filter(car -> car.getCarPosition() == highestPositioncar.getCarPosition())
                 .collect(Collectors.toList());
 
         return winners.stream()
@@ -48,14 +48,14 @@ public class RacingGame {
         }
     }
 
-    private void gameResult() {
-        for(int i = 0; i<racingCars.size(); i++){
+    private void gameResult() { // GameResultView 클래스를 따로 만들어서 분리 하자
+        for(int i = 0; i < racingCars.size(); i++){
             racingCars.getCar(i).carMove(RandomNumber.createRandomNumberZeroToNine());
         }
 
 
         for(int i = 0; i < racingCars.size(); i++){
-            System.out.println(racingCars.getCarName(i) + ":" + repeatedSign(racingCars.getCar(i).getCarLocation()));
+            System.out.println(racingCars.getCarName(i) + ":" + repeatedSign(racingCars.getCar(i).getCarPosition()));
         }
     }
 
@@ -67,10 +67,13 @@ public class RacingGame {
         return sign.toString();
     }
 
+    private List<Car> carsSetting() {
+        return mapToCarList(InputView.inputCarName());
+    }
 
-    private static List<Car> mapToCarNameList(List<String> carNamesString) {
+
+    private static List<Car> mapToCarList(List<String> carNamesString) {
          return carNamesString.stream()
-                .map(CarName::new)
                 .map(Car::new)
                 .collect(Collectors.toList());
     }

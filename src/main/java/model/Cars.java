@@ -1,9 +1,6 @@
 package model;
 
-import view.OutputView;
-
-import java.util.ArrayList;
-import java.util.Collection;
+import validator.CarsValidator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,20 +8,8 @@ public class Cars { // 일급 컬렉션 // 불변으로 만들자
     private final List<Car> cars;
 
     public Cars(List<Car> cars){
-        validateDuplicate(cars);
+        new CarsValidator(cars);
         this.cars = cars;
-    }
-    private void validateDuplicate(List<Car> cars) {
-        if(isDuplication(cars)){
-            OutputView.printDuplicateNameMessage();
-            throw new IllegalArgumentException();
-        }
-    }
-    private static boolean isDuplication(List<Car> cars) {
-        return cars.stream()
-                .map(Car::getName)
-                .distinct()
-                .count() != cars.size();
     }
     public List<Car> getCars() {
         return cars;

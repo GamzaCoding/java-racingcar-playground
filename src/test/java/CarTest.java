@@ -12,7 +12,7 @@ public class CarTest {
 
     @BeforeEach
     void setUp(){
-        this.testCar = new Car(new CarName("teCar"));
+        this.testCar = new Car("teCar");
     }
 
     @Test
@@ -24,18 +24,18 @@ public class CarTest {
     @Test
     @DisplayName("Car 이동 기능 테스트. 단, 4 이상인 경우만 이동")
     public void carMoveTest(){
-        assertThat(testCar.getCarLocation()).isEqualTo(0);
+        assertThat(testCar.getCarPosition()).isEqualTo(0);
 
         testCar.carMove(1);
-        assertThat(testCar.getCarLocation()).isEqualTo(0);
+        assertThat(testCar.getCarPosition()).isEqualTo(0);
 
         testCar.carMove(3);
-        assertThat(testCar.getCarLocation()).isEqualTo(0);
+        assertThat(testCar.getCarPosition()).isEqualTo(0);
 
         testCar.carMove(4);
-        assertThat(testCar.getCarLocation()).isEqualTo(1);
+        assertThat(testCar.getCarPosition()).isEqualTo(1);
 
         testCar.carMove(5);
-        assertThat(testCar.getCarLocation()).isEqualTo(2);
+        assertThat(testCar.getCarPosition()).isEqualTo(2);
     }
 }
