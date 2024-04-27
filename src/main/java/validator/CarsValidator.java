@@ -2,7 +2,6 @@ package validator;
 
 import model.Car;
 import view.ExceptionView;
-
 import java.util.List;
 
 public class CarsValidator {

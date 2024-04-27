@@ -1,24 +1,23 @@
 package model;
 
-import view.OutputView;
-
 public class Car {
-    private static final int CAR_MOVE_STANDARD_NUMBER = 4;
 
     private final CarName name;
     private final Position position;
+    private final CarMoveStrategy carMoveStrategy;
 
     public Car(String name) {
         this.name = new CarName(name);
         this.position = new Position();
+        carMoveStrategy = new CarMoveStrategy();
     }
     public String getName () {
         return name.getName();
     }
 
     public void carMove(int moveFlagNumber){
-        if(moveFlagNumber >= CAR_MOVE_STANDARD_NUMBER){
-            position.goOneStep();
+        if(carMoveStrategy.isMovable(moveFlagNumber)){
+            position.goOneStep(carMoveStrategy.getMovementAmount());
         }
     }
 

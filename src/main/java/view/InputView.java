@@ -1,13 +1,11 @@
 package view;
 
-import com.sun.source.doctree.ThrowsTree;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class InputView {
-    public static List<String> inputCarName(){
+    public static List<String> inputCarsName(){
         Scanner scanner = new Scanner(System.in);
         return carNameList(scanner.nextLine());
     }
