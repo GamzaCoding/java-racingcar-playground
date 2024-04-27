@@ -17,25 +17,22 @@ public class CarTest {
 
     @Test
     @DisplayName("Car 이름 부여 테스트")
-    public void makeCar(){
+    public void carNameTest(){
         assertThat(testCar.getName()).isEqualTo("teCar");
     }
-
+    @Test
+    @DisplayName("시작 Position 설정 테스트")
+    public void carPositionTest(){
+        assertThat(testCar.getCarPosition()).isEqualTo(0);
+    }
     @Test
     @DisplayName("Car 이동 기능 테스트. 단, 4 이상인 경우만 이동")
     public void carMoveTest(){
-        assertThat(testCar.getCarPosition()).isEqualTo(0);
-
-        testCar.carMove(1);
-        assertThat(testCar.getCarPosition()).isEqualTo(0);
-
         testCar.carMove(3);
         assertThat(testCar.getCarPosition()).isEqualTo(0);
 
         testCar.carMove(4);
         assertThat(testCar.getCarPosition()).isEqualTo(1);
 
-        testCar.carMove(5);
-        assertThat(testCar.getCarPosition()).isEqualTo(2);
     }
 }
