@@ -43,10 +43,13 @@ public class Cars { // 일급 컬렉션 // 불변으로 만들자
         return cars;
     }
     public String getCarName(int index){
-        return cars.get(index).getName();
+        return findCar(index).getName();
     }
     public int getCarPosition(int index){
-        return cars.get(index).getCarPosition();
+        return findCar(index).getCarPosition();
+    }
+    public Car findCar(int index){
+        return cars.get(index);
     }
     public String getCarsName(){
         return cars.stream()
