@@ -1,10 +1,7 @@
-import model.Car;
-import model.CarName;
-import model.Cars;
+import model.car.Car;
+import model.car.Cars;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,9 +20,8 @@ public class CarsTest {
         Cars cars = new Cars(Arrays.asList(gamzaCar, riceCar, appleCar));
 
         assertThat(cars.getCars().containsAll(Arrays.asList(gamzaCar,riceCar,appleCar))).isTrue();
-        assertThat(cars.size()).isEqualTo(3);
+        assertThat(cars.getSize()).isEqualTo(3);
     }
-
     @Test
     @DisplayName("자동차 이름 입력 테스트")
     public void carsNameInputTest(){
@@ -38,7 +34,6 @@ public class CarsTest {
 
         assertThat(racingCars.getCarsName()).isEqualTo("[gamza, rice, apple]");
     }
-
     @Test
     @DisplayName("경주게임 승자 확인 테스트")
     public void findWinnerTest(){
@@ -51,9 +46,6 @@ public class CarsTest {
         appleCar.carMove(4);
         Cars cars = new Cars(Arrays.asList(gamzaCar, riceCar, appleCar));
 
-        assertThat(cars.findWinner()).isEqualTo("gamza");
-
-
-
+        assertThat(cars.findWinners()).isEqualTo("gamza");
     }
 }

@@ -1,6 +1,7 @@
 package controller;
 
-import model.Cars;
+import model.car.Cars;
+import model.RandomNumber;
 import view.OutputView;
 
 public class MainController {
@@ -20,12 +21,11 @@ public class MainController {
         rePlay(inputController.getPlayCount());
 
         OutputView.printGameResultMessage();
-        OutputView.printGameWinnerMessage(racingCars.findWinner());
+        OutputView.printGameWinnerMessage(racingCars.findWinners());
     }
-
     private void rePlay(int playCount) {
         for(int i = 0; i < playCount; i++){
-            racingCars.carsMove();
+            racingCars.carsMove(new RandomNumber());
             OutputView.printGameResult(racingCars);
         }
     }

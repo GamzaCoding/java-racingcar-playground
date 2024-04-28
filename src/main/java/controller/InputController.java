@@ -1,6 +1,6 @@
 package controller;
 
-import model.Car;
+import model.car.Car;
 import view.InputView;
 
 import java.util.List;

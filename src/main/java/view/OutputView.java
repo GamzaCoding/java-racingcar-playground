@@ -1,6 +1,6 @@
 package view;
 
-import model.Cars;
+import model.car.Cars;
 
 public class OutputView {
     private static final String RACING_START_MESSAGE = "경주할 자동차 이름을 입력하세요(이름은 쉽표(,)를 기준으로 구분).";
@@ -26,7 +26,7 @@ public class OutputView {
     }
 
     public static void printGameResult(Cars racingCars) {
-        for (int i = 0; i < racingCars.size(); i++) {
+        for (int i = 0; i < racingCars.getSize(); i++) {
             System.out.println(racingCars.getCarName(i) + ":" + moveSign(racingCars.getCarPosition(i)));
         }
         System.out.println();

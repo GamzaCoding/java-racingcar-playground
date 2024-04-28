@@ -1,4 +1,4 @@
-package model;
+package model.moveStrategy;
 
 public interface MoveStrategy {
 

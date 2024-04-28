@@ -1,6 +1,6 @@
 package validator;
 
-import model.Car;
+import model.car.Car;
 import view.ExceptionView;
 import java.util.List;
 

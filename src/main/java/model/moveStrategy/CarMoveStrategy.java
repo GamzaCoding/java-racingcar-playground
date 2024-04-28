@@ -1,4 +1,4 @@
-package model;
+package model.moveStrategy;
 
 public class CarMoveStrategy implements MoveStrategy {
     private static final int CAR_MOVE_STANDARD_NUMBER = 4;
@@ -13,5 +13,4 @@ public class CarMoveStrategy implements MoveStrategy {
     public int getMovementAmount() {
         return CAR_MOVEMENT_AMOUNT;
     }
-
 }

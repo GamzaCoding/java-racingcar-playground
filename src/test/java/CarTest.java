@@ -1,5 +1,4 @@
-import model.Car;
-import model.CarName;
+import model.car.Car;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -33,6 +32,12 @@ public class CarTest {
 
         testCar.carMove(4);
         assertThat(testCar.getCarPosition()).isEqualTo(1);
+    }
+    @Test
+    @DisplayName("Car 객체 동등성 비교")
+    public void CarEquivalenceTest(){
+        Car gamzaCar = new Car("gamza");
 
+        assertThat(gamzaCar).isEqualTo(new Car("gamza"));
     }
 }
